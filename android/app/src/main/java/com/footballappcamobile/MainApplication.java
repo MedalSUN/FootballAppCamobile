@@ -1,4 +1,4 @@
-package com.test;
+package com.footballappcamobile;
 
 import android.app.Application;
 

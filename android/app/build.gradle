@@ -102,7 +102,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.test"
+        applicationId "com.footballappcamobile"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

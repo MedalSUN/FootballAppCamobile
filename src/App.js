@@ -1,32 +1,96 @@
 import React from 'react'
 
-import {View, Text} from 'react-native'
+import { createStackNavigator } from 'react-navigation'
 
+import ApolloClient from 'apollo-boost'
+import { ApolloProvider } from 'react-apollo'
 
-
-// 与Apollo有关的第三方依赖
-// import ApolloClient from 'apollo-boost'
-// import { ApolloProvider } from 'react-apollo'
-
-// import {Text, View} from 'native-base'
-
-
+// 引入登陆相关页面
 import Login from './components/auth/Login'
+import Register from './components/auth/Register'
+// 引入底部导航栏
+import BottomTabNavigator from './components/nav/BottomTabNavigator'
 
+import { signIn, signOut, getToken } from './util'
+import AV from 'leancloud-storage'
+import { AV_APP_ID as appId, AV_APP_KEY as appKey } from './constants'
+import { TextMessage, Realtime, Event } from 'leancloud-realtime'
+import { TypedMessagesPlugin, ImageMessage } from 'leancloud-realtime-plugin-typed-messages'
 
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
+import rootReducer from './reducers'
+import reduxThunk from 'redux-thunk'
+
+const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore)
+const store = createStoreWithMiddleware(rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+
+// Create the client as outlined in the setup guide
+const client = new ApolloClient({
+  uri: 'http://127.0.0.1:5000/graphql',
+  request: async (operation) => {
+    const token = await getToken()
+    let config = {}
+    if (token) {
+      config.headers = {
+        authorization: `Bearer ${token}`
+      }
+    }
+    operation.setContext(config)
+  }
+})
+
+// 登录模块
+const AuthStack = createStackNavigator({
+  Login: { screen: Login, navigationOptions: { headerTitle: '登录' } },
+  Register: { screen: Register, navigationOptions: { headerTitle: '注册' } }
+})
+
+const LoggedInStack = createStackNavigator({
+  HomeScreen: { screen: BottomTabNavigator, navigationOptions: { header: null } }
+})
 
 export default class App extends React.Component {
   constructor (props) {
     super(props)
+    this.state = { loading: true }
   }
 
+  componentDidMount () {
+    AV.initialize(appId, appKey)
+    global.AV = AV
+
+    console.log('av is:', AV)
+
+    var realtime = new Realtime({
+      appId: appId,
+      appKey: appKey,
+      plugins: [TypedMessagesPlugin] // 注册富媒体消息插件
+    })
+
+    global.realtime = realtime
+  }
+
+  handleChangeLoginState = (loggedIn = false, jwt) => {
+    this.setState({ loggedIn })
+    if (loggedIn) {
+      signIn(jwt)
+    } else {
+      signOut()
+    }
+  };
 
   render () {
     return (
-
-      <View>
-            <Login></Login>
-      </View>
+      <ApolloProvider client={client}>
+        {/* <ChatScreen /> */}
+        <Provider store={store}>
+          {this.state.loggedIn
+            ? <AuthStack screenProps={{ changeLoginState: this.handleChangeLoginState }}/>
+            : <LoggedInStack screenProps={{ changeLoginState: this.handleChangeLoginState }} />}
+        </Provider>
+      </ApolloProvider>
     )
   }
 }

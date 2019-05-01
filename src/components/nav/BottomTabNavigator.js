@@ -29,9 +29,9 @@ const SelfStack = createStackNavigator({
 })
 const BottomTabNavigator = createBottomTabNavigator(
   {
-    首页: { screen: NewsStack }, // 新闻展示区域
-    赛事: { screen: RaceStack }, // 赛事区域
-    我的: { screen: SelfStack } // 我的区域
+    首页: { screen: NewsStack },
+    赛事: { screen: RaceStack },
+    我的: { screen: SelfStack }
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -43,11 +43,11 @@ const BottomTabNavigator = createBottomTabNavigator(
         const { routeName } = navigation.state
         let iconName
         if (routeName === '首页') {
-          iconName = `ios-home${focused ? '' : '-outline'}`
-        } else if (routeName === '我的') {
-          iconName = `ios-person${focused ? '' : '-outline'}`
+          iconName = `ios-home${focused ? '' : ''}`
         } else if (routeName === '赛事') {
-          iconName = `ios-cart${focused ? '' : '-outline'}`
+          iconName = `ios-cart${focused ? '' : ''}`
+        } else if (routeName === '我的') {
+          iconName = `ios-person${focused ? '' : ''}`
         }
         // You can return any component that you like here! We usually use an
         // icon component from react-native-vector-icons

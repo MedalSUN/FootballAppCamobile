@@ -1,34 +1,55 @@
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-    loginStyle: {
-        backgroundColor: '#FDFEFE',
-        height: 670
-    },
-    logoStyle: {
-        width: 200,
-        height: 200,
-        marginLeft:110
-    },
-    loginInputContainer:{
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingLeft: 50,
-        marginTop: 80
-    },
-    loginInputStyle: {
-        width: 300
-    },
-    submitButtonStyle: {
-        marginTop: 50,
-        marginLeft: -30
-    },
-    registerTextContainerStyle: {
-        marginTop: 50,
-        marginLeft: -30
-    },
-    registerTextStyle: {
-        fontSize: 20
-    }
+  topImage: {
+    width: 380,
+    height: 140,
+    marginTop: 20,
+    marginLeft: 20
+  },
+  loginForm: {
+    marginTop: 40,
+    marginLeft: 25,
+    marginRight: 40,
+    justifyContent: 'center'
+  },
+  inputError: {
+    marginTop: 36
+  },
+  fontSize15: {
+    fontSize: 15
+  },
+  loginButtonView: {
+    marginLeft: 40,
+    marginRight: 40,
+    marginTop: 30
+  },
+  loginButton: {
+    height: 50,
+    backgroundColor: 'rgb(250,122,21)'
+  },
+  loginButtonText: {
+    color: 'rgb(255,255,255)',
+    fontSize: 20
+  },
+  signupView: {
+    marginTop: 70,
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+  noAccountButton: {
+    height: 30
+  },
+  greyText: {
+    color: 'rgb(51,51,51)',
+    fontSize: 15
+  },
+  goSignupButton: {
+    height: 30,
+    backgroundColor: 'rgb(250,122,21)'
+  },
+  whiteText: {
+    color: 'rgb(255,255,255)',
+    fontSize: 15
+  }
 })

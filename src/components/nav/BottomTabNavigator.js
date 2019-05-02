@@ -45,7 +45,7 @@ const BottomTabNavigator = createBottomTabNavigator(
         if (routeName === '首页') {
           iconName = `ios-home${focused ? '' : ''}`
         } else if (routeName === '赛事') {
-          iconName = `ios-cart${focused ? '' : ''}`
+          iconName = `ios-baseball${focused ? '' : ''}`
         } else if (routeName === '我的') {
           iconName = `ios-person${focused ? '' : ''}`
         }

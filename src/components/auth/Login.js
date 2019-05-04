@@ -10,16 +10,6 @@ import * as actions from '../../actions'
 import Styles from './style'
 import PasswordInput from './components/PasswordInput'
 
-// import { client } from '../../shared_client' // 引入公共文件中的client
-// const ALL_IMG = gql`
-// query allImages{
-//   allImages{
-//     nodes{
-//       url
-//     }
-//   }
-// }
-// `
 class Login extends React.Component {
   constructor (props) {
     super(props)
@@ -63,7 +53,7 @@ class Login extends React.Component {
       .then(({ data }) => {
         console.log('data', data.authenticate)
         console.log('this.props', this.props)
-        this.props.signinUser(data.authenticate.authReturnType.jwt, data.authenticate.authReturnType.id, data.authenticate.authReturnType.chatId)
+        this.props.signinUser(data.authenticate.authReturnType.jwt, data.authenticate.authReturnType.id)
         this.setState({ ...this.state, token: data.authenticate.authReturnType.jwt })
         return this.props.screenProps.changeLoginState(true, data.authenticate.authReturnType.jwt)
       })
@@ -153,8 +143,7 @@ Login = graphql(
         clientMutationId
         authReturnType {
           jwt,
-          id,
-          chatId
+          id
         }
         }      
     }

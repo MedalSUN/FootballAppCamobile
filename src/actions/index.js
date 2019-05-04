@@ -9,11 +9,11 @@ import { AsyncStorage } from 'react-native'
 // import { browserHistory } from 'react-router';
 // import { push } from 'react-router-redux';
 
-export function signinUser (jwt, id, chatId) {
+export function signinUser (jwt, id) {
   console.log('in signin action', jwt)
   console.log('in signin action', id)
   return function (dispatch) {
-    dispatch({ type: AUTH_USER, userId: id, chatId })
+    dispatch({ type: AUTH_USER, userId: id })
     // - Save the JWT token
     AsyncStorage.setItem('jwt', jwt)
     // AsyncStorage.setItem('current_id', id)

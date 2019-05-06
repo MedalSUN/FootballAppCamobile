@@ -19,19 +19,10 @@ import { Image, Text } from 'react-native'
 import { Container, Content, View } from 'native-base'
 import { Query } from 'react-apollo'
 import Styles from './style'
-import gql from 'graphql-tag'
 
-const ALL_IMG = gql`
-query allImages{
-  allImages{
-    nodes{
-      url
-    }
-  }
-}
-`
+import { ALL_IMG } from '../../gql/queries'
 
-class GiftsScreen extends Component {
+class SelfMainPage extends Component {
   render () {
     return < Query query={ALL_IMG} >
       {({ loading, error, data }) => {
@@ -41,6 +32,9 @@ class GiftsScreen extends Component {
           <Container>
             <Content>
               <View>
+                {
+                  console.log(data)
+                }
                 {
                   data.allImages.nodes.map((p, i) => {
                     return (
@@ -61,4 +55,4 @@ class GiftsScreen extends Component {
     </Query>
   }
 }
-export default GiftsScreen
+export default SelfMainPage

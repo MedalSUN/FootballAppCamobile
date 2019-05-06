@@ -9,6 +9,9 @@ import NewsMainPage from '../../components/news/NewsMainPage'
 // 赛事模块页面引入
 import RaceMainPage from '../../components/race/RaceMainPage'
 
+// 榜单模块页面引入
+import RankList from '../../components/rankList/RankList'
+
 // 我的模块页面引入
 import SelfMainPage from '../../components/self/SelfMainPage'
 
@@ -23,7 +26,12 @@ const RaceStack = createStackNavigator({
   RaceMainPage: { screen: RaceMainPage, navigationOptions: { headerTitle: '赛事' } }
 })
 
-// 3: 创建我的模块
+// 3:创建榜单模块
+const RankStack = createStackNavigator({
+  RankList: { screen: RankList, navigationOptions: { headerTitle: '榜单' } }
+})
+
+// 4: 创建我的模块
 const SelfStack = createStackNavigator({
   SelfMainPage: { screen: SelfMainPage, navigationOptions: { headerTitle: '我的' } }
 })
@@ -31,6 +39,7 @@ const BottomTabNavigator = createBottomTabNavigator(
   {
     首页: { screen: NewsStack },
     赛事: { screen: RaceStack },
+    榜单: { screen: RankStack },
     我的: { screen: SelfStack }
   },
   {
@@ -46,6 +55,8 @@ const BottomTabNavigator = createBottomTabNavigator(
           iconName = `ios-home${focused ? '' : ''}`
         } else if (routeName === '赛事') {
           iconName = `ios-baseball${focused ? '' : ''}`
+        } else if (routeName === '榜单') {
+          iconName = `ios-list${focused ? '' : ''}`
         } else if (routeName === '我的') {
           iconName = `ios-person${focused ? '' : ''}`
         }

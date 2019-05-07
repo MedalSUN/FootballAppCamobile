@@ -2,6 +2,9 @@
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
+  contentStyle: {
+    backgroundColor: '#F2F2F2'
+  },
   imgSize: {
     width: 20,
     height: 20

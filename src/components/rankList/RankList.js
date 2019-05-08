@@ -1,8 +1,17 @@
 import React, { Component } from 'react'
-import { Image, Text } from 'react-native'
+import { Image, Text, TouchableOpacity } from 'react-native'
 import { Container, Content, View } from 'native-base'
+import RankNavigator from './components/RankNavigator'
 
 class RankList extends Component {
+  static navigationOptions = (
+    (props) => {
+      return {
+        headerTitle: <RankNavigator/>
+      }
+    }
+  )
+
   render () {
     return (
       <Container>

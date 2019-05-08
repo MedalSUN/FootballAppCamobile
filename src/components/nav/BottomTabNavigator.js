@@ -28,7 +28,7 @@ const RaceStack = createStackNavigator({
 
 // 3:创建榜单模块
 const RankStack = createStackNavigator({
-  RankList: { screen: RankList, navigationOptions: { headerTitle: '榜单' } }
+  RankList: { screen: RankList }
 })
 
 // 4: 创建我的模块

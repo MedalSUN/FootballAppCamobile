@@ -65,3 +65,46 @@ query allScores($orderBy: [ScoresOrderBy!]){
   }
 }
 `
+
+// 获取所有的赛程
+export const ALL_MATCH_SCHEDULE = gql`
+query allMatchSchedules($orderBy: [MatchSchedulesOrderBy!]){
+  allMatchSchedules(orderBy: $orderBy){
+    totalCount
+    nodes{
+      id,
+      orderNumber,
+      wheelNumber,
+      matchDate,
+      footballTeamByTeamA{
+        teamName,
+        imageByTeamLogo{
+          url
+        }
+      },
+      footballTeamByTeamB{
+        teamName,
+        imageByTeamLogo{
+          url
+        }
+      },
+      footballCourtByMatchLocation{
+        courtName
+      }
+    }
+  }
+}
+`
+
+// 获取相应比赛的进球比分数据
+export const ALL_MATCH_GOAL = gql`
+query allMatchGoals($condition: MatchGoalCondition) {
+  allMatchGoals(condition: $condition){
+    totalCount
+    nodes{
+      goalA,
+      goalB
+    }
+  }
+}
+`

@@ -1,32 +1,40 @@
 import React from 'react'
-import { View, TouchableOpacity, Text } from 'react-native'
-import Style from '../style'
+import { View, TouchableOpacity, Text, Image } from 'react-native'
+import Styles from './style'
+import RaceScore from './RaceScore'
 
 export default class RaceItem extends React.Component {
   render () {
+    const { matchId, teamAName, teamBName, teamALogo, teamBLogo, matchDate, matchLocation, wheelNumber } = this.props
     return (
       <View>
-        <TouchableOpacity style={Style.list} onPress={ () => { console.log('11') }}>
+        <TouchableOpacity style={Styles.list} onPress={ () => { console.log('11') }}>
           {/* 左边模块：比赛球队 */}
-          <View style={Style.listLift}>
-            <Text>主场球队区域</Text>
-            <Text>客场球队区域</Text>
+          <View style={Styles.listLift}>
+            <View style={Styles.teamInfo}>
+              <Image style={Styles.teamImgSize} source={{ uri: teamALogo }}/>
+              <Text>{teamAName}</Text>
+            </View>
+            <View style={Styles.teamInfo}>
+              <Image style={Styles.teamImgSize} source={{ uri: teamBLogo }}/>
+              <Text>{teamBName}</Text>
+            </View>
           </View>
           {/* 右边模块：时间，比分 */}
-          <View style={Style.listRight}>
+          <View style={Styles.listRight}>
             {/* 比赛轮数，时间，地点 */}
-            <View style={Style.raceLocation}>
-              <Text>2019-05-06</Text>
-              <Text>山商诺坎普</Text>
-              <Text>山甲联赛第5轮</Text>
+            <View style={Styles.raceLocation}>
+              <Text style={Styles.raceText}>{matchDate}</Text>
+              <Text style={Styles.raceText}>{matchLocation}</Text>
+              <Text style={Styles.raceText}>山甲联赛第{wheelNumber}轮</Text>
             </View>
             {/* 比赛是否完成 ？出现比分 ： 敬请期待提示 */}
-            <View style={Style.raceScore}>
-              <Text>0</Text>
-              <Text>1</Text>
-            </View>
+            <RaceScore matchId={matchId}/>
           </View>
         </TouchableOpacity>
+        {/* 底部分割线 */}
+        <View style={Styles.bottomLine}></View>
+
       </View>
     )
   }

@@ -17,7 +17,7 @@ export default StyleSheet.create({
   },
   touchTextStyle: {
     fontSize: 23,
-    color: '#0033FF',
+    color: '#FF9900',
     fontFamily: 'Helvetica Neue'
   },
   ViewStyle: {

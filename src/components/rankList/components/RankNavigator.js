@@ -7,16 +7,16 @@ class RankNavigator extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      textTouchA: false, // 标识标题A是否被点击过
+      textTouchA: true, // 标识标题A是否被点击过
       textTouchB: false, // 标识标题B是否被点击过
       textTouchC: false // 标识标题C是否被点击过
     }
   }
-  componentDidMount = () => {
 
-  }
-
+  // 函数：点击后改变导航栏的样式
   changeTextStyle = (value) => {
+    // console.log(this.props.navigation)
+    this.props.navigation.state.params.getNavItem(value)
     if (value === 'A') {
       if (this.state.textTouchA === false) {
         this.setState({

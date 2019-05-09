@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Image, Text, TouchableOpacity } from 'react-native'
 import { Container, Content, View } from 'native-base'
 import RankNavigator from './components/RankNavigator'
+import Styles from './style'
 
 // 引入三个榜单组件
 import ShooterList from './components/ShooterList'
@@ -38,7 +39,7 @@ class RankList extends Component {
   render () {
     return (
       <Container>
-        <Content>
+        <Content style={Styles.contentStyle}>
           <View>
             {this.state.showItem === 'A' && <ShooterList/> }
             {this.state.showItem === 'B' && <AssistList/> }

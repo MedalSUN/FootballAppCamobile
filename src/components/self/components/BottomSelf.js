@@ -24,13 +24,13 @@ class BottomSelf extends Component {
         {/* 退出登录 */}
         <TouchableOpacity onPress={() => { console.log('3') }}>
           <View style={Styles.bottomButtonStyle}>
-            <Text style={Styles.bottomButtonTextStyle}>退出登录</Text>
+            <Text style={Styles.bottomButtonTextStyle}>我的预约</Text>
           </View>
         </TouchableOpacity>
         {/* 说明 */}
         <TouchableOpacity onPress={() => { console.log('4') }}>
           <View style={Styles.bottomButtonStyle}>
-            <Text style={Styles.bottomButtonTextStyle}>说明</Text>
+            <Text style={Styles.bottomButtonTextStyle}>退出登录</Text>
           </View>
         </TouchableOpacity>
       </View>

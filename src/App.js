@@ -29,10 +29,9 @@ const store = createStoreWithMiddleware(rootReducer,
 // Create the client as outlined in the setup guide
 const client = new ApolloClient({
   // 172.20.1.12是ip地址  使用IP地址 http://172.20.1.12:5000/graphql  注意： ip地址会经常变，所以要及时更换
-  uri: 'http://172.20.1.29:5000/graphql',
+  uri: 'http://172.20.0.167:5000/graphql',
   request: async (operation) => {
     const token = await getToken()
-    // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiY2FfcGVyc29uIiwicGVyc29uX2lkIjoiMzg0Y2EwYzQtMzEzYi00MGVkLWI1YzEtOGM2MGRmOGUwMzcwIiwiZXhwIjoxNTU3MjgxNDY0LCJpYXQiOjE1NTY2NzY2NjQsImF1ZCI6InBvc3RncmFwaGlsZSIsImlzcyI6InBvc3RncmFwaGlsZSJ9.Zexzwf6JUw512xgfeySXmuXn6Lf3ZrAm1qsBR9UUX80'
     let config = {}
     if (token) {
       config.headers = {
@@ -45,7 +44,7 @@ const client = new ApolloClient({
 
 // 登录模块
 const AuthStack = createStackNavigator({
-  Login: { screen: Login, navigationOptions: { headerTitle: '登录' } },
+  Login: { screen: Login },
   Register: { screen: Register, navigationOptions: { headerTitle: '注册' } }
 })
 

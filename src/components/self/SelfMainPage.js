@@ -8,6 +8,16 @@ import BottomSelf from './components/BottomSelf'
 import TopSelf from './components/TopSelf'
 
 class SelfMainPage extends Component {
+  static navigationOptions = (
+    (props) => {
+      return {
+        headerTitle: '我的',
+        headerTitleStyle: {
+          marginLeft: 190
+        }
+      }
+    }
+  )
   render () {
     return (
       <Container>

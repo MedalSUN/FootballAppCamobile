@@ -108,3 +108,16 @@ query allMatchGoals($condition: MatchGoalCondition) {
   }
 }
 `
+// 获取当前登录人的信息
+export const CURRENT_PERSON = gql`
+query currentPerson{
+  currentPerson{
+    playerName,
+    id,
+    about,
+    imageByPlayerImg{
+      url
+    }
+  }
+}
+`

@@ -11,6 +11,17 @@ import Styles from './style'
 import PasswordInput from './components/PasswordInput'
 
 class Login extends React.Component {
+  static navigationOptions = (
+    (props) => {
+      return {
+        headerTitle: '登录',
+        headerTitleStyle: {
+          marginLeft: 190
+        }
+      }
+    }
+  )
+
   constructor (props) {
     super(props)
 
@@ -84,7 +95,7 @@ class Login extends React.Component {
             <Item error={emailError} >
               <Input
                 fontSize='1'
-                placeholder="请输入手机号/邮箱"
+                placeholder="请输入邮箱"
                 onChangeText={value => this.handleInputChange('email', value)}
                 keyboardType="email-address"
                 autoCapitalize="none"

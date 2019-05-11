@@ -20,6 +20,16 @@ query allImages($condition: ImageCondition){
 
 // 获取新闻接口中的数据
 export default class NewsMainPage extends React.Component {
+  static navigationOptions = (
+    (props) => {
+      return {
+        headerTitle: '新闻',
+        headerTitleStyle: {
+          marginLeft: 190
+        }
+      }
+    }
+  )
   // eslint-disable-next-line no-useless-constructor
   constructor (props) {
     super(props)
@@ -92,7 +102,7 @@ export default class NewsMainPage extends React.Component {
         return (
           <Container>
             <Content>
-              <Image style={Styles.test} source={{ uri: data.allImages.nodes[0].url }}/>
+              {/* <Image style={Styles.test} source={{ uri: data.allImages.nodes[0].url }}/> */}
             </Content>
           </Container>
         )

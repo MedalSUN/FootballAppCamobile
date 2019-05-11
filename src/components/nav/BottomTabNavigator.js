@@ -14,6 +14,7 @@ import RankList from '../../components/rankList/RankList'
 
 // 我的模块页面引入
 import SelfMainPage from '../../components/self/SelfMainPage'
+import ChangeSelfAbout from '../../components/self/ChangeSelfAbout'
 
 // 创建BottomTabNavigator的几个stack
 // 1: 创建首页模块
@@ -33,7 +34,8 @@ const RankStack = createStackNavigator({
 
 // 4: 创建我的模块
 const SelfStack = createStackNavigator({
-  SelfMainPage: { screen: SelfMainPage, navigationOptions: { headerTitle: '我的' } }
+  SelfMainPage: { screen: SelfMainPage, navigationOptions: { headerTitle: '我的' } },
+  ChangeSelfAbout: { screen: ChangeSelfAbout, navigationOptions: { headerTitle: '修改签名' } }
 })
 const BottomTabNavigator = createBottomTabNavigator(
   {

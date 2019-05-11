@@ -73,5 +73,51 @@ export default StyleSheet.create({
     fontSize: 20,
     color: '#5C5C5C',
     fontFamily: 'Helvetica Neue'
+  },
+  // ========= UpdateAbout文件中的样式
+  aboutTextLength: {
+    height: 22,
+    lineHeight: 22,
+    marginTop: 11,
+    marginRight: 20,
+    marginLeft: 308
+  },
+  textlength: {
+    fontSize: 16,
+    color: '#c1c1c1'
+  },
+  profileMarginTop65: {
+    marginTop: 50,
+    marginLeft: 43,
+    marginRight: 43
+  },
+  // =========ChangeAboutTextArea文件样式
+  backImg: {
+    width: 24,
+    height: 24,
+    marginLeft: 20
+  },
+  textAreaStyle: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 60,
+    width: 380
+  },
+  textAreaBoxStyle: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: 'white',
+    height: 100,
+    width: 380
+  },
+  errorTextStyle: {
+    color: 'rgb(250,122,21)',
+    fontSize: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgb(250,122,21)'
   }
+
 })

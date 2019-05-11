@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { Image, Text } from 'react-native'
+// import { RefreshControl, ScrollView } from 'react-native'
 import { Container, Content } from 'native-base'
 
 // import { ALL_IMG } from '../../gql/queries'
@@ -19,11 +19,12 @@ class SelfMainPage extends Component {
     }
   )
   render () {
+    const { navigation } = this.props
     return (
       <Container>
         <Content style={Styles.contentStyle}>
-          <TopSelf/>
-          <BottomSelf/>
+          <TopSelf navigation={navigation}/>
+          <BottomSelf navigation={navigation}/>
         </Content>
       </Container>
     )

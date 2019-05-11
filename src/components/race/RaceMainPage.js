@@ -7,6 +7,16 @@ import Styles from './style'
 import { ALL_MATCH_SCHEDULE } from '../../gql/queries'
 
 export default class RaceMainPage extends React.Component {
+  static navigationOptions = (
+    (props) => {
+      return {
+        headerTitle: '新闻',
+        headerTitleStyle: {
+          marginLeft: 190
+        }
+      }
+    }
+  )
   render () {
     return <Query query={ALL_MATCH_SCHEDULE} variables={{ orderBy: 'ORDER_NUMBER_ASC' }}>
       {({ data, error, loading }) => {

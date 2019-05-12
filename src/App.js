@@ -29,7 +29,7 @@ const store = createStoreWithMiddleware(rootReducer,
 // Create the client as outlined in the setup guide
 const client = new ApolloClient({
   // 172.20.1.12是ip地址  使用IP地址 http://172.20.1.12:5000/graphql  注意： ip地址会经常变，所以要及时更换
-  uri: 'http://172.20.0.167:5000/graphql',
+  uri: 'http://172.20.0.204:5000/graphql',
   request: async (operation) => {
     const token = await getToken()
     let config = {}

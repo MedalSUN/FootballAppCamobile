@@ -25,6 +25,7 @@ export default class NewsMainPage extends React.Component {
    getFootballNews = async () => {
      try {
        // 注意这里的await语句，其所在的函数必须有async关键字声明
+       // 需要加一个判断，判断返回是不是ok（因为有次数限制，所以超过100次就无法访问）
        await fetch(
          'https://api.jisuapi.com/news/search?keyword=校园足球&appkey=204301153e6c8f53'
        ).then(response => {

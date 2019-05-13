@@ -5,6 +5,7 @@ import RaceItem from './components/RaceItem'
 import { Query } from 'react-apollo'
 import Styles from './style'
 import RaceEventDetails from './components/RaceEventDetails'
+import TeamPlayer from './components/TeamPlayer'
 import { ALL_MATCH_SCHEDULE } from '../../gql/queries'
 
 export default class RaceDetails extends React.Component {
@@ -40,12 +41,10 @@ export default class RaceDetails extends React.Component {
                     teamAName={teamAName} teamBName={teamBName} teamALogo={teamALogo} teamBLogo={teamBLogo}/>
                 </Tab>
                 <Tab heading="主队球员" tabStyle={Styles.tabStyle} activeTabStyle={Styles.activeTabStyle} textStyle={Styles.textStyle} activeTextStyle={Styles.activeTextStyle}>
-                  {/* <Tab2 /> */}
-                  <Text>Tab2</Text>
+                  <TeamPlayer teamId={teamAId} teamName={teamAName} teamLogo={teamALogo}/>
                 </Tab>
                 <Tab heading="客队球员" tabStyle={Styles.tabStyle} activeTabStyle={Styles.activeTabStyle} textStyle={Styles.textStyle} activeTextStyle={Styles.activeTextStyle}>
-                  {/* <Tab3 /> */}
-                  <Text>Tab3</Text>
+                  <TeamPlayer teamId={teamBId} teamName={teamBName} teamLogo={teamBLogo}/>
                 </Tab>
               </Tabs>
             </Content>

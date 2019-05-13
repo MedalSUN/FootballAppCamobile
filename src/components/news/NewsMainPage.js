@@ -41,7 +41,8 @@ export default class NewsMainPage extends React.Component {
      }
    }
 
-   componentDidMount () {
+   // eslint-disable-next-line react/no-deprecated
+   componentWillMount () {
      this.getFootballNews()
    }
 

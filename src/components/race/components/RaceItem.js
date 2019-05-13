@@ -5,10 +5,18 @@ import RaceScore from './RaceScore'
 
 export default class RaceItem extends React.Component {
   render () {
-    const { matchId, teamAName, teamBName, teamALogo, teamBLogo, matchDate, matchLocation, wheelNumber } = this.props
+    const { navigation } = this.props
+    const { matchId, teamAName, teamBName, teamALogo, teamBLogo, matchDate, matchLocation, wheelNumber, teamAId, teamBId } = this.props
     return (
       <View>
-        <TouchableOpacity style={Styles.list} onPress={ () => { console.log('11') }}>
+        <TouchableOpacity style={Styles.list} onPress={ () => navigation.navigate('RaceDetails',
+          { matchId: matchId,
+            teamAId: teamAId,
+            teamBId: teamBId,
+            teamAName: teamAName,
+            teamBName: teamBName,
+            teamALogo: teamALogo,
+            teamBLogo: teamBLogo })}>
           {/* 左边模块：比赛球队 */}
           <View style={Styles.listLift}>
             <View style={Styles.teamInfo}>
@@ -32,9 +40,6 @@ export default class RaceItem extends React.Component {
             <RaceScore matchId={matchId}/>
           </View>
         </TouchableOpacity>
-        {/* 底部分割线 */}
-        <View style={Styles.bottomLine}></View>
-
       </View>
     )
   }

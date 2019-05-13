@@ -25,7 +25,6 @@ export default class NewsItem extends React.Component {
               {
                 pic && <View style={Styles.imgBoxStyle}>
                   <Image style={Styles.newsImg} source={{ uri: pic }}/>
-                  {/* <Image style={Styles.newsImg} source={require('../../../img/logo.png')}/> */}
                 </View>
               }
               {/* 时间，来源区域 */}
@@ -38,8 +37,11 @@ export default class NewsItem extends React.Component {
                 {/* 来源 */}
                 <View style={Styles.rowFlex}>
                   <Text style={Styles.otherTextColor}>来源:  </Text>
-                  <Text style={Styles.srcTextStyle}>{src}</Text>
+                  {
+                    src.length === 0 ? <Text style={Styles.srcTextStyle}>本站</Text> : <Text style={Styles.srcTextStyle}>{src}</Text>
+                  }
                 </View>
+
               </View>
             </View>
           }

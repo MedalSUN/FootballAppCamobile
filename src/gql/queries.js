@@ -147,3 +147,21 @@ query allMatchEveryGoals($condition: MatchEveryGoalCondition, $orderBy: [MatchEv
   }
 }
 `
+
+// 获取主客队所有球员的数据
+export const ALL_TEAM_PLAYER = gql`
+query allPersonTeams($condition: PersonTeamCondition){
+  allPersonTeams(condition: $condition){
+    totalCount
+    nodes{
+      personByPersonId{
+        playerName,
+        shirtNum,
+        imageByPlayerImg{
+          url
+        }
+      }
+    }
+  }
+}
+`

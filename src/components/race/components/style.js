@@ -230,5 +230,51 @@ export default StyleSheet.create({
     width: '48%',
     height: '98%',
     position: 'relative'
+  },
+  // =========== TeamPlayer文件样式
+  teamLogoSize: {
+    width: 100,
+    height: 100,
+    borderWidth: 1,
+    borderRadius: 60
+  },
+  teamLogoBox: {
+    marginTop: 30,
+    marginBottom: 20,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  teamLogoNameText: {
+    fontSize: 20,
+    marginTop: 10,
+    fontFamily: 'Helvetica Neue',
+    fontWeight: '800',
+    color: '#FF9933'
+  },
+  otherText: {
+    fontSize: 18,
+    fontWeight: '500',
+    color: '#CCCC00'
+  },
+  playerHeaderImg: {
+    width: 50,
+    height: 50,
+    borderWidth: 1,
+    borderRadius: 30,
+    marginRight: 10
+  },
+  marginTop10: {
+    marginTop: 15
+  },
+  playerNameText: {
+    fontSize: 15,
+    marginTop: 10,
+    fontFamily: 'Helvetica Neue',
+    fontWeight: '500',
+    color: '#646464'
+  },
+  allPlayerContainer: {
+    height: 450
   }
 })

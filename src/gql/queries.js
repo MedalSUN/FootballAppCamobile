@@ -76,12 +76,14 @@ query allMatchSchedules($orderBy: [MatchSchedulesOrderBy!]){
       orderNumber,
       wheelNumber,
       matchDate,
+      teamA,
       footballTeamByTeamA{
         teamName,
         imageByTeamLogo{
           url
         }
       },
+      teamB,
       footballTeamByTeamB{
         teamName,
         imageByTeamLogo{
@@ -117,6 +119,30 @@ query currentPerson{
     about,
     imageByPlayerImg{
       url
+    }
+  }
+}
+`
+
+// 获取某一场比赛中的所有的进球细节
+export const ALL_EVENTS = gql`
+query allMatchEveryGoals($condition: MatchEveryGoalCondition, $orderBy: [MatchEveryGoalsOrderBy!]){
+  allMatchEveryGoals(condition: $condition, orderBy: $orderBy){
+    totalCount
+    nodes{
+      matchId,
+      goalTime,
+      personByShooterId{
+        playerName,
+        personTeamsByPersonId{
+          nodes{
+            teamId
+          }
+        }
+      },
+      personByAssistId{
+         playerName
+      }
     }
   }
 }

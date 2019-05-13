@@ -8,7 +8,13 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#EAE9D9'
+    width: 380,
+    backgroundColor: '#FFFFFF',
+    marginLeft: 15,
+    marginTop: 10,
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#C0C0C0'
   },
   listLift: {
     height: 100,
@@ -17,7 +23,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'flex-start',
     paddingLeft: 20
-    // backgroundColor: 'red'
   },
   listRight: {
     height: 100,
@@ -27,7 +32,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     paddingLeft: 10,
     paddingRight: 10
-    // backgroundColor: 'yellow'
   },
   raceLocation: {
     flexDirection: 'column',
@@ -59,7 +63,6 @@ export default StyleSheet.create({
   },
   // ========RaceScore样式
   raceScore: {
-    marginRight: 10,
     height: 60,
     width: 30
   },
@@ -69,5 +72,163 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  // ======= RaceEventDetails文件样式
+  contentStyle: {
+    backgroundColor: '#F2F2F2'
+  },
+  teamNameBox: {
+    height: 60,
+    paddingLeft: 40,
+    paddingRight: 40,
+    backgroundColor: '#DDDDDD',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  teamNameText: {
+    fontWeight: '800',
+    fontFamily: 'Helvetica Neue'
+  },
+  teamNameLogoBox: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  teamLogo: {
+    width: 30,
+    height: 30,
+    marginLeft: 5,
+    marginRight: 5,
+    borderWidth: 1,
+    borderRadius: 30
+  },
+  showImgHelp: {
+    height: 50,
+    width: '100%',
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 5,
+    paddingBottom: 5,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center'
+  },
+  imgHelpTime: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  // ================ RaceEventItem文件样式
+  teamEventLeftBox: {
+    width: 150,
+    height: 60,
+    marginLeft: 30,
+    paddingRight: 5,
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: '#C0C0C0',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  teamEventLeftTimeBox: {
+    width: 45,
+    height: 60,
+    paddingRight: 5,
+    marginLeft: 5,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'flex-end'
+  },
+  teamEventLeftPlayerBox: {
+    width: 100,
+    height: 60,
+    paddingRight: 5,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'flex-end'
+  },
+  teamEventRightTimeBox: {
+    width: 45,
+    height: 60,
+    paddingLeft: 15,
+    marginRight: 5,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'flex-end'
+  },
+  teamEventRightBox: {
+    width: 150,
+    height: 60,
+    paddingLeft: 5,
+    marginLeft: 20,
+    borderWidth: 1,
+    borderRadius: 10,
+    borderColor: '#C0C0C0',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'flex-start'
+  },
+  teamEventRightPlayerBox: {
+    width: 100,
+    height: 60,
+    paddingLeft: 5,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'flex-start'
+  },
+  playerRoleBox: {
+    height: '50%',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  playerLeftText: {
+    fontFamily: 'Helvetica Neue',
+    color: '#969696',
+    fontSize: 15,
+    marginRight: 10
+  },
+  playerRightText: {
+    fontFamily: 'Helvetica Neue',
+    fontSize: 15,
+    color: '#969696',
+    marginLeft: 10
+  },
+  // ===== RaceTimeDetails文件样式
+  timeDetailsBox: {
+    height: 550,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    position: 'relative'
+  },
+  timeIconBox: {
+    marginTop: 10,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  timeColumn: {
+    marginTop: 10,
+    width: 1,
+    height: 450,
+    backgroundColor: 'blue'
+  },
+  timeEventBox: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  leftTeamEvent: {
+    width: '48%',
+    height: '98%',
+    position: 'relative'
+  },
+  rightTeamEvent: {
+    width: '48%',
+    height: '98%',
+    position: 'relative'
   }
 })

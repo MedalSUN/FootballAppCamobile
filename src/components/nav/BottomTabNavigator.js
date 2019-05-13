@@ -8,6 +8,7 @@ import NewsMainPage from '../../components/news/NewsMainPage'
 
 // 赛事模块页面引入
 import RaceMainPage from '../../components/race/RaceMainPage'
+import RaceDetails from '../../components/race/RaceDetails'
 
 // 榜单模块页面引入
 import RankList from '../../components/rankList/RankList'
@@ -24,7 +25,8 @@ const NewsStack = createStackNavigator({
 
 // 2: 创建赛事模块
 const RaceStack = createStackNavigator({
-  RaceMainPage: { screen: RaceMainPage, navigationOptions: { headerTitle: '赛事' } }
+  RaceMainPage: { screen: RaceMainPage, navigationOptions: { headerTitle: '赛事' } },
+  RaceDetails: { screen: RaceDetails }
 })
 
 // 3:创建榜单模块

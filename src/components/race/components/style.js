@@ -264,7 +264,7 @@ export default StyleSheet.create({
     borderRadius: 30,
     marginRight: 10
   },
-  marginTop10: {
+  marginTop15: {
     marginTop: 15
   },
   playerNameText: {

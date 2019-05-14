@@ -9,7 +9,7 @@ import { ALL_TEAM_PLAYER } from '../../../gql/queries'
 export default class TeamPlayer extends React.Component {
   render () {
     const { teamId, teamName, teamLogo } = this.props
-    return <Query query={ALL_TEAM_PLAYER} variables={{ condition: { teamId: teamId } }}>
+    return <Query query={ALL_TEAM_PLAYER} variables={{ condition: { teamId: teamId, checked: true } }}>
       {({ data, error, loading }) => {
         if (loading) return <Text>Loading...</Text>
         if (error) return <Text>`Error! ${error.message}`</Text>
@@ -30,7 +30,7 @@ export default class TeamPlayer extends React.Component {
                 {
                   data.allPersonTeams.nodes.map((p, i) => {
                     return (
-                      <View key={i} style={[Styles.timeEventBox, Styles.marginTop10]}>
+                      <View key={i} style={[Styles.timeEventBox, Styles.marginTop15]}>
                         <Image style={Styles.playerHeaderImg} source={{ uri: p.personByPersonId.imageByPlayerImg.url }}/>
                         <Text style={Styles.playerNameText}>{p.personByPersonId.playerName}</Text>
                       </View>

@@ -20,11 +20,15 @@ export default class RaceItem extends React.Component {
           {/* 左边模块：比赛球队 */}
           <View style={Styles.listLift}>
             <View style={Styles.teamInfo}>
-              <Image style={Styles.teamImgSize} source={{ uri: teamALogo }}/>
+              <TouchableOpacity onPress={ () => navigation.navigate('TeamHomePage', { teamId: teamAId })}>
+                <Image style={Styles.teamImgSize} source={{ uri: teamALogo }}/>
+              </TouchableOpacity>
               <Text>{teamAName}</Text>
             </View>
             <View style={Styles.teamInfo}>
-              <Image style={Styles.teamImgSize} source={{ uri: teamBLogo }}/>
+              <TouchableOpacity onPress={ () => navigation.navigate('TeamHomePage', { teamId: teamBId })}>
+                <Image style={Styles.teamImgSize} source={{ uri: teamBLogo }}/>
+              </TouchableOpacity>
               <Text>{teamBName}</Text>
             </View>
           </View>

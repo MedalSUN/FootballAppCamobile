@@ -8,3 +8,11 @@ mutation changePersonAbout($input: ChangePersonAboutInput!){
     }
   }
 `
+// 用于注册用户参加球队
+export const JOIN_TEAM = gql`
+mutation joinTeam($input: JoinTeamInput!){
+  joinTeam(input: $input){
+    string
+  }
+}
+`

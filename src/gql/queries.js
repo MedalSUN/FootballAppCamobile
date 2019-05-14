@@ -68,8 +68,8 @@ query allScores($orderBy: [ScoresOrderBy!]){
 
 // 获取所有的赛程
 export const ALL_MATCH_SCHEDULE = gql`
-query allMatchSchedules($orderBy: [MatchSchedulesOrderBy!]){
-  allMatchSchedules(orderBy: $orderBy){
+query allMatchSchedules($orderBy: [MatchSchedulesOrderBy!], $filter: MatchScheduleFilter){
+  allMatchSchedules(orderBy: $orderBy, filter: $filter){
     totalCount
     nodes{
       id,
@@ -161,6 +161,24 @@ query allPersonTeams($condition: PersonTeamCondition){
           url
         }
       }
+    }
+  }
+}
+`
+// 获取特定球队的所有数据
+export const ALL_TEAM_MESSAGE = gql`
+query allFootballTeams($condition: FootballTeamCondition){
+  allFootballTeams(condition: $condition){
+    totalCount
+    nodes{
+      id,
+      teamName,
+      teamAbout,
+      teamLogo,
+      imageByTeamLogo{
+        url
+      }
+      memberNumber,
     }
   }
 }

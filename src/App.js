@@ -22,25 +22,27 @@ import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './reducers'
 import reduxThunk from 'redux-thunk'
 
+import { client } from '../src/shared_client'
+
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore)
 const store = createStoreWithMiddleware(rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 // Create the client as outlined in the setup guide
-const client = new ApolloClient({
-  // 172.20.1.12是ip地址  使用IP地址 http://172.20.1.12:5000/graphql  注意： ip地址会经常变，所以要及时更换
-  uri: 'http://172.20.0.52:5000/graphql',
-  request: async (operation) => {
-    const token = await getToken()
-    let config = {}
-    if (token) {
-      config.headers = {
-        authorization: `Bearer ${token}`
-      }
-    }
-    operation.setContext(config)
-  }
-})
+// const client = new ApolloClient({
+//   // 172.20.1.12是ip地址  使用IP地址 http://172.20.1.12:5000/graphql  注意： ip地址会经常变，所以要及时更换
+//   uri: 'http://172.20.1.39:5000/graphql',
+//   request: async (operation) => {
+//     const token = await getToken()
+//     let config = {}
+//     if (token) {
+//       config.headers = {
+//         authorization: `Bearer ${token}`
+//       }
+//     }
+//     operation.setContext(config)
+//   }
+// })
 
 // 登录模块
 const AuthStack = createStackNavigator({

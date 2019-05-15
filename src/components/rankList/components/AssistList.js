@@ -16,6 +16,7 @@ class AssistList extends Component {
   }
 
   render () {
+    const { navigation } = this.props
     return (
       <View>
         {/* 头部的四个标题： 球员[包含头像和名字]，数据，详情 */}
@@ -39,7 +40,7 @@ class AssistList extends Component {
               <View>
                 {data.allAssistLists.nodes.map((p, i) => {
                   return (
-                    <AssistListItem key={i} assistNum={p.assistNum} assistId={p.assistId}
+                    <AssistListItem key={i} assistNum={p.assistNum} assistId={p.assistId} navigation={ navigation }
                       url={p.personByAssistId.imageByPlayerImg.url} assistName={p.personByAssistId.playerName}
                     />
                   )

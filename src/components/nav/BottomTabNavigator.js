@@ -37,6 +37,7 @@ const RaceStack = createStackNavigator({
 // 3:创建榜单模块
 const RankStack = createStackNavigator({
   RankList: { screen: RankList },
+  TeamHomePage: { screen: TeamHomePage },
   GoalDetails: { screen: GoalDetails },
   ScoreDetails: { screen: ScoreDetails },
   AssistDetails: { screen: AssistDetails }

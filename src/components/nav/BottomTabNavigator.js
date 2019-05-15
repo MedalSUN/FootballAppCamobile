@@ -13,6 +13,9 @@ import TeamHomePage from '../../components/race/TeamHomePage'
 
 // 榜单模块页面引入
 import RankList from '../../components/rankList/RankList'
+import GoalDetails from '../../components/rankList/GoalDetails'
+import AssistDetails from '../../components/rankList/AssistDetails'
+import ScoreDetails from '../../components/rankList/ScoreDetails'
 
 // 我的模块页面引入
 import SelfMainPage from '../../components/self/SelfMainPage'
@@ -33,7 +36,10 @@ const RaceStack = createStackNavigator({
 
 // 3:创建榜单模块
 const RankStack = createStackNavigator({
-  RankList: { screen: RankList }
+  RankList: { screen: RankList },
+  GoalDetails: { screen: GoalDetails },
+  ScoreDetails: { screen: ScoreDetails },
+  AssistDetails: { screen: AssistDetails }
 })
 
 // 4: 创建我的模块

@@ -23,7 +23,7 @@ export default class RaceTimeDetails extends React.Component {
             {
               data && data.allMatchEveryGoals.nodes.map((p, i) => {
                 return (
-                  p.personByShooterId.personTeamsByPersonId.nodes[0].teamId === teamAId &&
+                  p.personByShooterId.personTeamByPersonId.teamId === teamAId &&
                   <RaceEventScore key={i} teamFlag={true} goalTime={p.goalTime}
                     shooterName={p.personByShooterId.playerName} assistName={p.personByAssistId.playerName} />)
               })
@@ -36,7 +36,7 @@ export default class RaceTimeDetails extends React.Component {
             {
               data && data.allMatchEveryGoals.nodes.map((p, i) => {
                 return (
-                  p.personByShooterId.personTeamsByPersonId.nodes[0].teamId === teamBId &&
+                  p.personByShooterId.personTeamByPersonId.teamId === teamBId &&
                   <RaceEventScore key={i} teamFlag={false} goalTime={p.goalTime}
                     shooterName={p.personByShooterId.playerName} assistName={p.personByAssistId.playerName} />)
               })

@@ -12,9 +12,10 @@ class AssistListItem extends Component {
   }
 
   render () {
+    const { navigation } = this.props
     const { assistNum, assistId, url, assistName } = this.props
     return (
-      <View style={Styles.dataLevel}>
+      <View style={[Styles.dataLevel, Styles.item]}>
         <View style={[Styles.listItemBox, Styles.dataLevelFlexStart]}>
           <Image style={Styles.imgSize} source={{ uri: url }}/>
           <Text style={Styles.shooterText}>{assistName}</Text>
@@ -23,7 +24,7 @@ class AssistListItem extends Component {
           <Text style={Styles.shooterText}>{assistNum}</Text>
         </View>
         <View style={[Styles.listItemBox, Styles.dataLevel]}>
-          <TouchableOpacity onPress={ () => { console.log('11') }}>
+          <TouchableOpacity onPress={ () => navigation.navigate('AssistDetails', { assistId: assistId })}>
             <Text style={Styles.shooterText}>详情</Text>
             <View style={Styles.bottomLevel}></View>
           </TouchableOpacity>

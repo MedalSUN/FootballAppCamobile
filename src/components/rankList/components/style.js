@@ -74,5 +74,11 @@ export default StyleSheet.create({
     width: 30,
     height: 1,
     backgroundColor: '#808080'
+  },
+  item: {
+    borderWidth: 1,
+    borderColor: '#FFFFFF',
+    backgroundColor: '#FFFFFF',
+    marginTop: 10
   }
 })

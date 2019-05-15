@@ -15,6 +15,7 @@ class ScoreList extends Component {
   }
 
   render () {
+    const { navigation } = this.props
     return (
       <View>
         {/* 头部的四个标题： 球员[包含头像和名字]，数据，详情 */}
@@ -38,7 +39,7 @@ class ScoreList extends Component {
               <View>
                 {data.allScores.nodes.map((p, i) => {
                   return (
-                    <ScoreListItem key={i} teamScore={p.teamScore} teamId={p.teamId}
+                    <ScoreListItem key={i} teamScore={p.teamScore} teamId={p.teamId} navigation={navigation}
                       teamLogo={p.footballTeamByTeamId.imageByTeamLogo.url} teamName={p.footballTeamByTeamId.teamName}
                     />
                   )

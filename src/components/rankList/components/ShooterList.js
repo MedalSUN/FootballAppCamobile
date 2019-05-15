@@ -15,6 +15,7 @@ class ShooterList extends Component {
   }
 
   render () {
+    const { navigation } = this.props
     return (
       <View>
         {/* 头部的四个标题： 球员[包含头像和名字]，数据，详情 */}
@@ -38,7 +39,7 @@ class ShooterList extends Component {
               <View>
                 {data.allShooterLists.nodes.map((p, i) => {
                   return (
-                    <ShooterListItem key={i} goalNum={p.goalNum} shooterId={p.shooterId}
+                    <ShooterListItem key={i} goalNum={p.goalNum} shooterId={p.shooterId} navigation={navigation}
                       url={p.personByShooterId.imageByPlayerImg.url} shooterName={p.personByShooterId.playerName}
                     />
                   )

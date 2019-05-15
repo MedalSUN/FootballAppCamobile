@@ -4,7 +4,6 @@ import { View, Text, Image } from 'react-native'
 import { Container, Content } from 'native-base'
 import { Query } from 'react-apollo'
 import Styles from './style'
-// import { ALL_EVENTS } from '../../../gql/queries'
 import RaceEventScore from './RaceEventScore'
 
 export default class RaceTimeDetails extends React.Component {

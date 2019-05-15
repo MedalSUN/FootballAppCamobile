@@ -20,6 +20,8 @@ import ScoreDetails from '../../components/rankList/ScoreDetails'
 // 我的模块页面引入
 import SelfMainPage from '../../components/self/SelfMainPage'
 import ChangeSelfAbout from '../../components/self/ChangeSelfAbout'
+import DefaultTeamPage from '../../components/self/DefaultTeamPage'
+import MyData from '../../components/self/MyData'
 
 // 创建BottomTabNavigator的几个stack
 // 1: 创建首页模块
@@ -46,6 +48,9 @@ const RankStack = createStackNavigator({
 // 4: 创建我的模块
 const SelfStack = createStackNavigator({
   SelfMainPage: { screen: SelfMainPage, navigationOptions: { headerTitle: '我的' } },
+  TeamHomePage: { screen: TeamHomePage },
+  DefaultTeamPage: { screen: DefaultTeamPage },
+  MyData: { screen: MyData },
   ChangeSelfAbout: { screen: ChangeSelfAbout, navigationOptions: { headerTitle: '修改签名' } }
 })
 const BottomTabNavigator = createBottomTabNavigator(

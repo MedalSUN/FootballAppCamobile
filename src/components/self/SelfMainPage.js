@@ -20,11 +20,12 @@ class SelfMainPage extends Component {
   )
   render () {
     const { navigation } = this.props
+    const { screenProps } = this.props
     return (
       <Container>
         <Content style={Styles.contentStyle}>
           <TopSelf navigation={navigation}/>
-          <BottomSelf navigation={navigation}/>
+          <BottomSelf navigation={navigation} screenProps={screenProps}/>
         </Content>
       </Container>
     )

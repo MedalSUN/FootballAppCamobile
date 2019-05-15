@@ -118,6 +118,36 @@ export default StyleSheet.create({
     fontSize: 16,
     borderBottomWidth: 1,
     borderBottomColor: 'rgb(250,122,21)'
+  },
+  // =======我的数据页面的数据样式
+  goalDetailsTop: {
+    height: 50,
+    paddingLeft: 50,
+    paddingRight: 20,
+    backgroundColor: '#C0C0C0',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  topTitleText: {
+    fontSize: 20,
+    color: '#808080',
+    fontFamily: 'Helvetica Neue'
+  },
+  goalDetailsContent: {
+    marginTop: 30
+  },
+  goalDetailsItem: {
+    height: 60,
+    paddingLeft: 50,
+    paddingRight: 20,
+    // marginTop: 5,
+    borderBottomWidth: 3,
+    borderColor: '#F2F2F2',
+    backgroundColor: '#FFFFFF',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
   }
 
 })

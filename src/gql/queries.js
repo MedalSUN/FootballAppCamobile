@@ -159,6 +159,8 @@ query allPersonTeams($condition: PersonTeamCondition){
   allPersonTeams(condition: $condition){
     totalCount
     nodes{
+      checked,
+      teamId,
       personByPersonId{
         playerName,
         shirtNum,

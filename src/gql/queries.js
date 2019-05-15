@@ -68,8 +68,8 @@ query allScores($orderBy: [ScoresOrderBy!]){
 
 // 获取所有的赛程
 export const ALL_MATCH_SCHEDULE = gql`
-query allMatchSchedules($orderBy: [MatchSchedulesOrderBy!], $filter: MatchScheduleFilter){
-  allMatchSchedules(orderBy: $orderBy, filter: $filter){
+query allMatchSchedules($orderBy: [MatchSchedulesOrderBy!], $condition: MatchScheduleCondition, $filter: MatchScheduleFilter){
+  allMatchSchedules(orderBy: $orderBy, condition: $condition, filter: $filter){
     totalCount
     nodes{
       id,
@@ -92,6 +92,10 @@ query allMatchSchedules($orderBy: [MatchSchedulesOrderBy!], $filter: MatchSchedu
       },
       footballCourtByMatchLocation{
         courtName
+      },
+      matchGoalById{
+        goalA,
+        goalB
       }
     }
   }
@@ -126,18 +130,19 @@ query currentPerson{
 
 // 获取某一场比赛中的所有的进球细节
 export const ALL_EVENTS = gql`
-query allMatchEveryGoals($condition: MatchEveryGoalCondition, $orderBy: [MatchEveryGoalsOrderBy!]){
+query allMatchEveryGoals($condition: MatchEveryGoalCondition, $orderBy: [MatchEveryGoalsOrderBy!] ){
   allMatchEveryGoals(condition: $condition, orderBy: $orderBy){
     totalCount
     nodes{
       matchId,
       goalTime,
+      matchScheduleByMatchId{
+        wheelNumber
+      },
       personByShooterId{
         playerName,
-        personTeamsByPersonId{
-          nodes{
+        personTeamByPersonId{
             teamId
-          }
         }
       },
       personByAssistId{

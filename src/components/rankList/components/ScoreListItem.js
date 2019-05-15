@@ -17,7 +17,9 @@ class ScoreListItem extends Component {
     return (
       <View style={[Styles.dataLevel, Styles.item]}>
         <View style={[Styles.listItemBox, Styles.dataLevelFlexStart]}>
-          <Image style={Styles.imgSize} source={{ uri: teamLogo }}/>
+          <TouchableOpacity onPress={ () => navigation.navigate('TeamHomePage', { teamId: teamId })}>
+            <Image style={Styles.imgSize} source={{ uri: teamLogo }}/>
+          </TouchableOpacity>
           <Text style={Styles.shooterText}>{teamName}</Text>
         </View>
         <View style={[Styles.listItemBox, Styles.dataLevel]}>

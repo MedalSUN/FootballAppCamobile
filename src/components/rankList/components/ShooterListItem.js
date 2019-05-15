@@ -5,16 +5,17 @@ import Styles from './style'
 
 // 射手榜里每一项
 class ShooterListItem extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-    }
-  }
+  // constructor (props) {
+  //   super(props)
+  //   this.state = {
+  //   }
+  // }
 
   render () {
+    const { navigation } = this.props
     const { goalNum, shooterId, url, shooterName } = this.props
     return (
-      <View style={Styles.dataLevel}>
+      <View style={[Styles.dataLevel, Styles.item]}>
         <View style={[Styles.listItemBox, Styles.dataLevelFlexStart]}>
           <Image style={Styles.imgSize} source={{ uri: url }}/>
           <Text style={Styles.shooterText}>{shooterName}</Text>
@@ -23,7 +24,7 @@ class ShooterListItem extends Component {
           <Text style={Styles.shooterText}>{goalNum}</Text>
         </View>
         <View style={[Styles.listItemBox, Styles.dataLevel]}>
-          <TouchableOpacity onPress={ () => { console.log('11') }}>
+          <TouchableOpacity onPress={ () => navigation.navigate('GoalDetails', { shooterId: shooterId })}>
             <Text style={Styles.shooterText}>详情</Text>
             <View style={Styles.bottomLevel}></View>
           </TouchableOpacity>

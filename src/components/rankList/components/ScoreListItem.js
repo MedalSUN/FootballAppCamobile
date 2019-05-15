@@ -12,9 +12,10 @@ class ScoreListItem extends Component {
   }
 
   render () {
+    const { navigation } = this.props
     const { teamScore, teamId, teamLogo, teamName } = this.props
     return (
-      <View style={Styles.dataLevel}>
+      <View style={[Styles.dataLevel, Styles.item]}>
         <View style={[Styles.listItemBox, Styles.dataLevelFlexStart]}>
           <Image style={Styles.imgSize} source={{ uri: teamLogo }}/>
           <Text style={Styles.shooterText}>{teamName}</Text>
@@ -23,7 +24,7 @@ class ScoreListItem extends Component {
           <Text style={Styles.shooterText}>{teamScore}</Text>
         </View>
         <View style={[Styles.listItemBox, Styles.dataLevel]}>
-          <TouchableOpacity onPress={ () => { console.log('11') }}>
+          <TouchableOpacity onPress={ () => navigation.navigate('ScoreDetails', { teamId: teamId })}>
             <Text style={Styles.shooterText}>详情</Text>
             <View style={Styles.bottomLevel}></View>
           </TouchableOpacity>

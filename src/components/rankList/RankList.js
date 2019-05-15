@@ -26,7 +26,6 @@ class RankList extends Component {
 
   // 函数：获取标题组件的点击的标题
   getNavItem = (value) => {
-    console.log(value)
     this.setState({
       showItem: value
     })
@@ -37,13 +36,14 @@ class RankList extends Component {
   }
 
   render () {
+    const { navigation } = this.props
     return (
       <Container>
         <Content style={Styles.contentStyle}>
           <View>
-            {this.state.showItem === 'A' && <ShooterList/> }
-            {this.state.showItem === 'B' && <AssistList/> }
-            {this.state.showItem === 'C' && <ScoreList/> }
+            {this.state.showItem === 'A' && <ShooterList navigation={navigation}/> }
+            {this.state.showItem === 'B' && <AssistList navigation={navigation}/> }
+            {this.state.showItem === 'C' && <ScoreList navigation={navigation}/> }
           </View>
         </Content>
       </Container>

@@ -28,6 +28,22 @@ const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore)
 const store = createStoreWithMiddleware(rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
+// Create the client as outlined in the setup guide
+// const client = new ApolloClient({
+//   // 172.20.1.12是ip地址  使用IP地址 http://172.20.1.12:5000/graphql  注意： ip地址会经常变，所以要及时更换
+//   uri: 'http://172.20.1.39:5000/graphql',
+//   request: async (operation) => {
+//     const token = await getToken()
+//     let config = {}
+//     if (token) {
+//       config.headers = {
+//         authorization: `Bearer ${token}`
+//       }
+//     }
+//     operation.setContext(config)
+//   }
+// })
+
 // 登录模块
 const AuthStack = createStackNavigator({
   Login: { screen: Login },
@@ -41,20 +57,7 @@ const LoggedInStack = createStackNavigator({
 export default class App extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {
-      loading: true,
-      loggedIn: false
-    }
-  }
-
-  // eslint-disable-next-line react/no-deprecated
-  async componentWillMount () {
-    const token = await getToken()
-    if (token) {
-      this.setState({
-        loggedIn: true
-      })
-    }
+    this.state = { loading: true }
   }
 
   componentDidMount () {
@@ -72,26 +75,14 @@ export default class App extends React.Component {
     global.realtime = realtime
   }
 
-  handleChangeLoginState = (loggedIn, jwt) => {
-    this.setState({
-      loggedIn: loggedIn
-    })
+  handleChangeLoginState = (loggedIn = false, jwt) => {
+    this.setState({ loggedIn })
     if (loggedIn) {
       signIn(jwt)
     } else {
-      // 执行登出操作
       signOut()
     }
   };
-
-  // 用于执行退出登录操作
-  // logOut = () => {
-  //   console.log('执行退出登录操作')
-  //   this.setState({
-  //     loggedIn: false
-  //   })
-  //   signOut()
-  // }
 
   render () {
     return (

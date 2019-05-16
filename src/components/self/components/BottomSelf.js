@@ -15,7 +15,6 @@ class BottomSelf extends Component {
   joinTeam = () => {
     client.query({
       query: ALL_TEAM_PLAYER,
-      fetchPolicy: 'network-only',
       variables: {
         'condition': {
           'personId': this.personId
@@ -47,7 +46,7 @@ class BottomSelf extends Component {
 
   // 退出登录函数
   logOut = () => {
-    this.props.screenProps.changeLoginState(false)
+    this.props.screenProps.changeLoginState(false, null)
   }
 
   render () {

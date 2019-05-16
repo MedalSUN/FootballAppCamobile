@@ -60,6 +60,9 @@ export default class NewsMainPage extends React.Component {
        <Container>
          <Content style={Styles.contentStyle}>
            {
+             this.state.newsList && console.log(this.state.newsList)
+           }
+           {
              this.state.newsList && this.state.newsList.map((p, i) => {
                return <NewsItem key={i} title={p.title} pic={p.pic} src={p.src} time={p.time} url={p.url}/>
              })

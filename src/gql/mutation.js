@@ -16,14 +16,3 @@ mutation joinTeam($input: JoinTeamInput!){
   }
 }
 `
-// 用户注册操作
-export const REGISTER_USER = gql`
-mutation registerPerson($input:RegisterPersonInput!){
-  registerPerson(input: $input){
-    person{
-      playerName
-      playerImg
-    }
-  }
-}
-`

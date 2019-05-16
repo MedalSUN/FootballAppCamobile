@@ -148,21 +148,6 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center'
-  },
-  // ====== MyDataTab样式
-  defaultView: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  defaultViewImg: {
-    width: 200,
-    height: 200
-  },
-  defaultViewText: {
-    fontSize: 20,
-    color: '#FF9933',
-    fontFamily: 'Helvetica Neue'
   }
 
 })

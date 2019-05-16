@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, TouchableOpacity, Text } from 'react-native'
+import { View, Image, Text } from 'react-native'
 import { Container, Content, Tabs, Tab } from 'native-base'
 import { Query } from 'react-apollo'
 import Styles from './style'
@@ -29,7 +29,7 @@ export default class MyDataTab extends React.Component {
       {/* 数据区域 */}
       {
         usearea === '进球' && <View style={[Styles.goalDetailsContent]}>
-          <Query query={ALL_EVENTS} variables={{ condition: { shooterId: personId }, orderBy: 'MATCH_ID_ASC' }}>
+          <Query query={ALL_EVENTS} fetchPolicy = 'network-only' variables={{ condition: { shooterId: personId }, orderBy: 'MATCH_ID_ASC' }}>
             {({ data, error, loading }) => {
               if (loading) return <Text>Loading...</Text>
               if (error) return <Text>`Error! ${error.message}`</Text>
@@ -43,7 +43,7 @@ export default class MyDataTab extends React.Component {
                       return (
                         <View key={i} style={Styles.goalDetailsItem}>
                           <View><Text>{wheelNum}</Text></View>
-                          <Query query={ALL_MATCH_SCHEDULE} variables={{ condition: { id: matchId } }}>
+                          <Query query={ALL_MATCH_SCHEDULE} fetchPolicy = 'network-only' variables={{ condition: { id: matchId } }}>
                             {({ data, error, loading }) => {
                               if (loading) return <Text>Loading...</Text>
                               if (error) return <Text>`Error! ${error.message}`</Text>
@@ -60,6 +60,12 @@ export default class MyDataTab extends React.Component {
                       )
                     })
                   }
+                  {
+                    data.allMatchEveryGoals.nodes.length === 0 && <View style={Styles.defaultView}>
+                      <Image style={Styles.defaultViewImg} source={require('../../../../img/logo.png')} resizeMode="contain"/>
+                      <Text style={Styles.defaultViewText}>还没有任何数据哦，加油少年！！！</Text>
+                    </View>
+                  }
                 </View>
               )
             }}
@@ -68,7 +74,8 @@ export default class MyDataTab extends React.Component {
       }
       {
         usearea === '助攻' && <View style={[Styles.goalDetailsContent]}>
-          <Query query={ALL_EVENTS} variables={{ condition: { assistId: personId }, orderBy: 'MATCH_ID_ASC' }}>
+          <Query query={ALL_EVENTS} fetchPolicy = 'network-only'
+            variables={{ condition: { assistId: personId }, orderBy: 'MATCH_ID_ASC' }}>
             {({ data, error, loading }) => {
               if (loading) return <Text>Loading...</Text>
               if (error) return <Text>`Error! ${error.message}`</Text>
@@ -82,11 +89,10 @@ export default class MyDataTab extends React.Component {
                       return (
                         <View key={i} style={Styles.goalDetailsItem}>
                           <View><Text>{wheelNum}</Text></View>
-                          <Query query={ALL_MATCH_SCHEDULE} variables={{ condition: { id: matchId } }}>
+                          <Query query={ALL_MATCH_SCHEDULE} fetchPolicy = 'network-only' variables={{ condition: { id: matchId } }}>
                             {({ data, error, loading }) => {
                               if (loading) return <Text>Loading...</Text>
                               if (error) return <Text>`Error! ${error.message}`</Text>
-                              console.log(data)
                               const teamA = data.allMatchSchedules.nodes[0].footballTeamByTeamA.teamName
                               const teamB = data.allMatchSchedules.nodes[0].footballTeamByTeamB.teamName
                               return (
@@ -98,6 +104,12 @@ export default class MyDataTab extends React.Component {
                         </View>
                       )
                     })
+                  }
+                  {
+                    data.allMatchEveryGoals.nodes.length === 0 && <View style={Styles.defaultView}>
+                      <Image style={Styles.defaultViewImg} source={require('../../../../img/logo.png')} resizeMode="contain"/>
+                      <Text style={Styles.defaultViewText}>还没有任何数据哦，加油少年！！！</Text>
+                    </View>
                   }
                 </View>
               )

@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Container, Button, Content, Form, Item, Input, Text, View } from 'native-base' // 2.3.3
+import { Container, Button, Content, Form, Item, Input, Text, View, Toast, Root } from 'native-base' // 2.3.3
 import { Image } from 'react-native'
 import { graphql } from 'react-apollo' // 2.0.0
 import gql from 'graphql-tag' // 2.5.0
@@ -41,6 +41,17 @@ class Login extends React.Component {
     this.setState(newState)
   }
 
+  // 显示非模态框
+  showToast = (message) => {
+    Toast.show({
+      text: '用户名或密码不正确',
+      textStyle: { textAlign: 'center' },
+      position: 'top',
+      type: 'warning',
+      duration: 1000
+    })
+  }
+
   handleSubmit = () => {
     console.log('in handle submit')
     this.setState({ ...this.state, token: 'in handle submit' })
@@ -62,11 +73,16 @@ class Login extends React.Component {
     this.props
       .authenticate(email, password)
       .then(({ data }) => {
-        console.log('data', data.authenticate)
-        console.log('this.props', this.props)
-        this.props.signinUser(data.authenticate.authReturnType.jwt, data.authenticate.authReturnType.id)
-        this.setState({ ...this.state, token: data.authenticate.authReturnType.jwt })
-        return this.props.screenProps.changeLoginState(true, data.authenticate.authReturnType.jwt)
+        if (data.authenticate.authReturnType) {
+          console.log('data', data.authenticate)
+          console.log('this.props', this.props)
+          this.props.signinUser(data.authenticate.authReturnType.jwt, data.authenticate.authReturnType.id)
+          this.setState({ ...this.state, token: data.authenticate.authReturnType.jwt })
+          return this.props.screenProps.changeLoginState(true, data.authenticate.authReturnType.jwt)
+        } else {
+          this.showToast()
+          return null
+        }
       })
       .catch(e => {
         console.log('error', e)
@@ -84,54 +100,55 @@ class Login extends React.Component {
     const { navigation } = this.props
 
     return (
+      <Root>
+        <Container>
 
-      <Container>
+          <Content>
+            {/* <Text>token:{this.state.token}</Text> */}
 
-        <Content>
-          {/* <Text>token:{this.state.token}</Text> */}
+            <Image style={Styles.topImage} source={require('../../../img/logo.png')} resizeMode="contain"/>
+            <Form style={Styles.loginForm}>
+              <Item error={emailError} >
+                <Input
+                  fontSize='1'
+                  placeholder="请输入邮箱"
+                  onChangeText={value => this.handleInputChange('email', value)}
+                  keyboardType="email-address"
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  allowFontScaling
+                  style={Styles.loginFormInput}
+                />
 
-          <Image style={Styles.topImage} source={require('../../../img/logo.png')} resizeMode="contain"/>
-          <Form style={Styles.loginForm}>
-            <Item error={emailError} >
-              <Input
-                fontSize='1'
-                placeholder="请输入邮箱"
-                onChangeText={value => this.handleInputChange('email', value)}
-                keyboardType="email-address"
-                autoCapitalize="none"
-                autoCorrect={false}
-                allowFontScaling
-                style={Styles.loginFormInput}
+              </Item>
+
+              <PasswordInput
+                itemStyle={Styles.inputError}
+                placeholder="请输入密码"
+                handleInputChange={this.handleInputChange}
+                passwordError={passwordError}
+                label="Password"
+                name="password"
+                fontSize={Styles.fontSize15}
               />
+            </Form>
 
-            </Item>
-
-            <PasswordInput
-              itemStyle={Styles.inputError}
-              placeholder="请输入密码"
-              handleInputChange={this.handleInputChange}
-              passwordError={passwordError}
-              label="Password"
-              name="password"
-              fontSize={Styles.fontSize15}
-            />
-          </Form>
-
-          <View style={Styles.loginButtonView}>
-            <Button onPress={this.handleSubmit} block style={Styles.loginButton} >
-              <Text style={Styles.loginButtonText} allowFontScaling>登录</Text>
-            </Button>
-          </View>
-          <View style={Styles.signupView} >
-            <Button block transparent style={Styles.noAccountButton} disabled>
-              <Text style={Styles.greyText} allowFontScaling>没有账号？</Text>
-            </Button>
-            <Button transparent onPress={() => navigation.navigate('Register')} style={Styles.goSignupButton} >
-              <Text style={Styles.whiteText } allowFontScaling>去注册</Text>
-            </Button>
-          </View>
-        </Content>
-      </Container>
+            <View style={Styles.loginButtonView}>
+              <Button onPress={this.handleSubmit} block style={Styles.loginButton} >
+                <Text style={Styles.loginButtonText} allowFontScaling>登录</Text>
+              </Button>
+            </View>
+            <View style={Styles.signupView} >
+              <Button block transparent style={Styles.noAccountButton} disabled>
+                <Text style={Styles.greyText} allowFontScaling>没有账号？</Text>
+              </Button>
+              <Button transparent onPress={() => navigation.navigate('Register')} style={Styles.goSignupButton} >
+                <Text style={Styles.whiteText } allowFontScaling>去注册</Text>
+              </Button>
+            </View>
+          </Content>
+        </Container>
+      </Root>
     )
   }
 }

@@ -44,7 +44,7 @@ export default class ChangeSelfAbout extends React.Component {
     Toast.show({
       text: message,
       textStyle: { textAlign: 'center' },
-      // position: 'center',
+      position: 'top',
       type: messOne === true ? 'success' : 'warning',
       duration: 1000
     })

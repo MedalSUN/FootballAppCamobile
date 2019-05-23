@@ -10,7 +10,7 @@ export default class MyData extends React.Component {
   static navigationOptions = (
     (props) => {
       return {
-        headerTitle: '比赛详情',
+        headerTitle: '我的数据',
         headerTitleStyle: {
           marginLeft: 110
         }

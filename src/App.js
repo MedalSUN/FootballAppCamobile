@@ -48,14 +48,14 @@ export default class App extends React.Component {
   }
 
   // eslint-disable-next-line react/no-deprecated
-  async componentWillMount () {
-    const token = await getToken()
-    if (token) {
-      this.setState({
-        loggedIn: true
-      })
-    }
-  }
+  // async componentWillMount () {
+  //   const token = await getToken()
+  //   if (token) {
+  //     this.setState({
+  //       loggedIn: true
+  //     })
+  //   }
+  // }
 
   componentDidMount () {
     AV.initialize(appId, appKey)

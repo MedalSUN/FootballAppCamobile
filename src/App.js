@@ -96,7 +96,6 @@ export default class App extends React.Component {
   render () {
     return (
       <ApolloProvider client={client}>
-        {/* <ChatScreen /> */}
         <Provider store={store}>
           {this.state.loggedIn
             ? <LoggedInStack screenProps={{ changeLoginState: this.handleChangeLoginState }} />

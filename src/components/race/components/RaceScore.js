@@ -13,6 +13,7 @@ export default class RaceScore extends React.Component {
       {({ data, error, loading }) => {
         if (loading) return <Text>Loading...</Text>
         if (error) return <Text>`Error! ${error.message}`</Text>
+        console.log(data.allMatchGoals.nodes[0])
         return (
           <View style={Styles.raceScore}>
             <View style={Styles.goalText}>

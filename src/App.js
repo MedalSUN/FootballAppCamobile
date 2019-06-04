@@ -84,15 +84,6 @@ export default class App extends React.Component {
     }
   };
 
-  // 用于执行退出登录操作
-  // logOut = () => {
-  //   console.log('执行退出登录操作')
-  //   this.setState({
-  //     loggedIn: false
-  //   })
-  //   signOut()
-  // }
-
   render () {
     return (
       <ApolloProvider client={client}>

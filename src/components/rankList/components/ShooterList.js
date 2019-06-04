@@ -31,7 +31,7 @@ class ShooterList extends Component {
           </View>
         </View>
         {/* 下方的所有数据 */}
-        <Query query={ALL_SHOOTER} variables={{ orderBy: 'GOAL_NUM_DESC' }}>
+        <Query query={ALL_SHOOTER} fetchPolicy='network-only' variables={{ orderBy: 'GOAL_NUM_DESC' }}>
           {({ data, error, loading }) => {
             if (loading) return <Text>Loading...</Text>
             if (error) return <Text>`Error! ${error.message}`</Text>

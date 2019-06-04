@@ -9,7 +9,7 @@ import { ALL_TEAM_PLAYER } from '../../../gql/queries'
 export default class TeamPlayer extends React.Component {
   render () {
     const { teamId, teamName, teamLogo } = this.props
-    return <Query query={ALL_TEAM_PLAYER} variables={{ condition: { teamId: teamId, checked: true } }}>
+    return <Query query={ALL_TEAM_PLAYER} fetchPolicy='cache-and-network' variables={{ condition: { teamId: teamId, checked: true } }}>
       {({ data, error, loading }) => {
         if (loading) return <Text>Loading...</Text>
         if (error) return <Text>`Error! ${error.message}`</Text>

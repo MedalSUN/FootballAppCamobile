@@ -31,7 +31,7 @@ const NewsStack = createStackNavigator({
 
 // 2: 创建赛事模块
 const RaceStack = createStackNavigator({
-  RaceMainPage: { screen: RaceMainPage, navigationOptions: { headerTitle: '赛事' } },
+  RaceMainPage: { screen: RaceMainPage },
   TeamHomePage: { screen: TeamHomePage },
   RaceDetails: { screen: RaceDetails }
 })

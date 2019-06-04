@@ -29,7 +29,7 @@ export default class RaceEventScore extends React.Component {
               </View>
               <View style={Styles.playerRoleBox}>
                 <Text style={Styles.playerLeftText}>{assistName}</Text>
-                <Ionicons name={'ios-football'} size={20} />
+                <Image style={Styles.assistLogo} source={require('../../../../img/assist.png')}/>
               </View>
             </View>
             <View style={Styles.teamEventLeftTimeBox}>
@@ -45,7 +45,7 @@ export default class RaceEventScore extends React.Component {
                 <Text style={Styles.playerRightText}>{shooterName}</Text>
               </View>
               <View style={Styles.playerRoleBox}>
-                <Ionicons name={'ios-football'} size={20} />
+                <Image style={Styles.assistLogo} source={require('../../../../img/assist.png')}/>
                 <Text style={Styles.playerRightText}>{assistName}</Text>
               </View>
             </View>

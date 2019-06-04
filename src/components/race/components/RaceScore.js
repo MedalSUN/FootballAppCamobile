@@ -15,14 +15,26 @@ export default class RaceScore extends React.Component {
         if (error) return <Text>`Error! ${error.message}`</Text>
         console.log(data.allMatchGoals.nodes[0])
         return (
-          <View style={Styles.raceScore}>
-            <View style={Styles.goalText}>
-              <Text >{data.allMatchGoals.nodes[0].goalA}</Text>
-            </View>
-            <View style={Styles.goalText}>
-              <Text>{data.allMatchGoals.nodes[0].goalB}</Text>
-            </View>
+          <View>
+            {
+              data.allMatchGoals.nodes[0] && <View style={Styles.raceScore}>
+                <View style={Styles.goalText}>
+                  <Text >{data.allMatchGoals.nodes[0].goalA}</Text>
+                </View>
+                <View style={Styles.goalText}>
+                  <Text>{data.allMatchGoals.nodes[0].goalB}</Text>
+                </View>
+              </View>
+            }
+            {
+              !data.allMatchGoals.nodes[0] && <View style={Styles.raceScore}>
+                <Text style={Styles.warnText}>未</Text>
+                <Text style={Styles.warnText}>开</Text>
+                <Text style={Styles.warnText}>始</Text>
+              </View>
+            }
           </View>
+
         )
       }}
     </Query>

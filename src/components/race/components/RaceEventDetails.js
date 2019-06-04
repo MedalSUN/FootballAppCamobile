@@ -10,7 +10,7 @@ import RaceTimeDetails from './RaceTimeDetails'
 export default class RaceEventDetails extends React.Component {
   render () {
     const { matchId, teamAId, teamBId, teamAName, teamBName, teamALogo, teamBLogo } = this.props
-    return <Query query={ALL_EVENTS} variables={{ condition: { matchId: matchId }, orderBy: 'GOAL_TIME_ASC' }}>
+    return <Query query={ALL_EVENTS} fetchPolicy='cache-and-network' variables={{ condition: { matchId: matchId }, orderBy: 'GOAL_TIME_ASC' }}>
       {({ data, error, loading }) => {
         if (loading) return <Text>Loading...</Text>
         if (error) return <Text>`Error! ${error.message}`</Text>
@@ -39,7 +39,8 @@ export default class RaceEventDetails extends React.Component {
               </View>
               <View style={Styles.imgHelpTime}>
                 <Text>助攻:  </Text>
-                <Ionicons name={'ios-football'} size={20} />
+                {/* <Ionicons name={'ios-football'} size={20} /> */}
+                <Image style={Styles.assistLogo} source={require('../../../../img/assist.png')}/>
               </View>
             </View>
             {/* 时间柱区域 */}

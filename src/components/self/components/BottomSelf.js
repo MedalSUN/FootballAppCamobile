@@ -67,11 +67,11 @@ class BottomSelf extends Component {
           </View>
         </TouchableOpacity>
         {/* 退出登录 */}
-        <TouchableOpacity onPress={() => this.logOut() }>
+        {/* <TouchableOpacity onPress={() => this.logOut() }>
           <View style={Styles.bottomButtonStyle}>
             <Text style={Styles.bottomButtonTextStyle}>退出登录</Text>
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     )
   }

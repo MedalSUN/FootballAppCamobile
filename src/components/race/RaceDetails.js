@@ -28,7 +28,7 @@ export default class RaceDetails extends React.Component {
     const teamBName = navigation.getParam('teamBName', '')
     const teamALogo = navigation.getParam('teamALogo', '')
     const teamBLogo = navigation.getParam('teamBLogo', '')
-    return <Query query={ALL_MATCH_SCHEDULE} variables={{ orderBy: 'ORDER_NUMBER_ASC' }}>
+    return <Query query={ALL_MATCH_SCHEDULE} fetchPolicy='cache-and-network' variables={{ orderBy: 'ORDER_NUMBER_ASC' }}>
       {({ data, error, loading }) => {
         if (loading) return <Text>Loading...</Text>
         if (error) return <Text>`Error! ${error.message}`</Text>

@@ -20,7 +20,7 @@ export default StyleSheet.create({
     marginTop: 20,
     marginRight: 15,
     flexDirection: 'column',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center'
   },
   myHeaderImg: {
@@ -59,6 +59,7 @@ export default StyleSheet.create({
   },
   // ============BottomSelf文件样式
   bottomButtonStyle: {
+    marginTop: 20,
     width: 300,
     height: 50,
     backgroundColor: '#C2C2C2',

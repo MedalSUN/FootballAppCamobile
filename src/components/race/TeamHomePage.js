@@ -90,7 +90,7 @@ export default class TeamHomePage extends React.Component {
                                   {
                                     data.allPersonTeams.nodes.map((p, i) => {
                                       return (
-                                        <View key={i} style={[Styles.timeEventBox, Styles.marginTop15]}>
+                                        <View key={i} style={[Styles.playerBox, Styles.marginTop15]}>
                                           <Image style={Styles.playerHeaderImg} source={{ uri: p.personByPersonId.imageByPlayerImg.url }}/>
                                           <Text style={Styles.playerNameText}>{p.personByPersonId.playerName}</Text>
                                         </View>

@@ -54,6 +54,12 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  playerBox: {
+    marginLeft: 150,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center'
+  },
   marginTop15: {
     marginTop: 15
   },

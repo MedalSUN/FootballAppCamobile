@@ -73,9 +73,20 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  warnText: {
+    fontFamily: 'Helvetica Neue',
+    color: '#CC9933'
+
+  },
   // ======= RaceEventDetails文件样式
   contentStyle: {
     backgroundColor: '#F2F2F2'
+  },
+  assistLogo: {
+    width: 20,
+    height: 20,
+    borderWidth: 1,
+    borderRadius: 5
   },
   teamNameBox: {
     height: 60,
@@ -122,7 +133,7 @@ export default StyleSheet.create({
   // ================ RaceEventItem文件样式
   teamEventLeftBox: {
     width: 150,
-    height: 60,
+    height: 55,
     marginLeft: 30,
     paddingRight: 5,
     borderWidth: 1,
@@ -134,7 +145,7 @@ export default StyleSheet.create({
   },
   teamEventLeftTimeBox: {
     width: 45,
-    height: 60,
+    height: 55,
     paddingRight: 5,
     marginLeft: 5,
     flexDirection: 'column',
@@ -143,7 +154,7 @@ export default StyleSheet.create({
   },
   teamEventLeftPlayerBox: {
     width: 100,
-    height: 60,
+    height: 55,
     paddingRight: 5,
     flexDirection: 'column',
     justifyContent: 'center',
@@ -151,7 +162,7 @@ export default StyleSheet.create({
   },
   teamEventRightTimeBox: {
     width: 45,
-    height: 60,
+    height: 55,
     paddingLeft: 15,
     marginRight: 5,
     flexDirection: 'column',
@@ -160,7 +171,7 @@ export default StyleSheet.create({
   },
   teamEventRightBox: {
     width: 150,
-    height: 60,
+    height: 55,
     paddingLeft: 5,
     marginLeft: 20,
     borderWidth: 1,
@@ -172,7 +183,7 @@ export default StyleSheet.create({
   },
   teamEventRightPlayerBox: {
     width: 100,
-    height: 60,
+    height: 55,
     paddingLeft: 5,
     flexDirection: 'column',
     justifyContent: 'center',
